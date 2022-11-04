@@ -41,7 +41,7 @@ db.once('open', ()=>{
     console.log('Connected to DB successfully')
 })
 
-const PORT = 5090;
+const PORT = 5000;
 // middlwares
 app.use(express.json())
 app.use(express.static('public'))
