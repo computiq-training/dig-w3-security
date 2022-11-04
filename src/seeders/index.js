@@ -5,6 +5,7 @@ const LOCALHOST = process.env.HOST;
 const DB_PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
 
+const MONGODB_CLOUD_CON = process.env.MONGODB_CLOUD_CON;
 
 const seed = require('./rolesSeeder')
 if(process.env.ENVIRONMENT == 'development')
