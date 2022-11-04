@@ -5,8 +5,22 @@ const LOCALHOST = process.env.HOST;
 const DB_PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
 
+const MONGODB_CLOUD_CON = process.env.MONGODB_CLOUD_CON;
+
 const seed = require('./rolesSeeder')
-mongoose.connect(`mongodb://${LOCALHOST}:${DB_PORT}/${DATABASE}`);
+if(process.env.ENVIRONMENT == 'development')
+{
+    mongoose.connect(`mongodb://${LOCALHOST}:${DB_PORT}/${DATABASE}`);
+}
+if (process.env.ENVIRONMENT == 'staging')
+{
+    console.log("con string is ", process.env.MONGODB_CLOUD_CON)
+    mongoose.connect(process.env.MONGODB_CLOUD_CON)
+}
+else{
+    console.log(MONGODB_CLOUD_CON)
+    mongoose.connect(MONGODB_CLOUD_CON);
+}
 const db = mongoose.connection;
 db.on('error',(e)=>{
     console.error(e)

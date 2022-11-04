@@ -21,6 +21,12 @@ if(process.env.ENVIRONMENT == 'development')
 {
     mongoose.connect(`mongodb://${LOCALHOST}:${DB_PORT}/${DATABASE}`);
 }
+if (process.env.ENVIRONMENT == 'staging')
+{
+
+    console.log("con string is ", process.env.MONGODB_CLOUD_CON)
+    mongoose.connect(process.env.MONGODB_CLOUD_CON)
+}
 else{
     console.log(MONGODB_CLOUD_CON)
     mongoose.connect(MONGODB_CLOUD_CON);
