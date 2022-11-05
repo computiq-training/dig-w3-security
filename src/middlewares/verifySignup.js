@@ -20,7 +20,7 @@ const checkRoles = async (req, res, next)=>{
     {
         if(!ROLES.includes(req.body.roles[i]))
         {
-            return res.status(400).json(error(400,"Bar request input"))
+            return res.status(400).json(error(400,"Bad request input"))
         }
     }
     next();
